@@ -1,7 +1,7 @@
 # xlMon
  
 ## Summary
-xlMon is an Excel COM Add-In for Windows that monitors an Excel session and sends metrics over UDP for a backend to analyse. xlMon collects information about the add-ins that are configured to run on start-up, general information about the Excel session and machine, as well as the full UNC path of workbooks opened and the length of time that they have been open.
+xlMon is a C# Excel COM Add-In for Windows that monitors an Excel session and sends metrics over UDP for a backend to analyse. xlMon collects information about the add-ins that are configured to run on start-up, general information about the Excel session and machine, as well as the full UNC path of workbooks opened and the length of time that they have been open.
 
 You could look at the times that workbooks were open, the patterns around when they are opened etc to determine how important they are.
 
