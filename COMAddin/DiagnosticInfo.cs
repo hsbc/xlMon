@@ -17,7 +17,6 @@ namespace XLMonCOMAddin
         public string MachineName { get; private set; }
         public string Username { get; private set; }
         public string UserDomain { get; private set; }
-        public bool RunningOnServer { get; private set; }
         public DateTime ProcessStartTime { get; private set; }
         public DateTime LastRebootTime { get; private set; }
         public string LocalIP { get; private set; }
