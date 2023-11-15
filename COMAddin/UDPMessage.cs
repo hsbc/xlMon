@@ -19,7 +19,6 @@ namespace XLMonCOMAddin
                 { "UsrNm", Path.Combine(d.UserDomain, d.Username) },
                 { "MchNm", d.MachineName },
                 { "IP", d.LocalIP },
-                { "MchUpTime", DiagnosticInfo.MilliSecondsSinceReboot / 1000 }, 
                 { "XLUpTime", d.MilliSecondsProcessRunning / 1000}
             };
             return msg;
