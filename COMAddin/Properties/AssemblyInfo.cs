@@ -6,7 +6,7 @@
 [assembly: AssemblyTitle("XLMonCOMAddin")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("HSBC")]
 [assembly: AssemblyProduct("XLMonCOMAddin")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
@@ -24,4 +24,4 @@
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]      //This one stays fixed. We aren't going to version Assemblies, instead we rely on the AssemblyFileVersion
-[assembly: AssemblyFileVersion("1.13.0.0")]
+[assembly: AssemblyFileVersion("1.14.0.0")]
