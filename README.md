@@ -1,9 +1,9 @@
 # xlMon
  
 ## Summary
-xlMon is a C# Excel COM Add-In for Windows that monitors an Excel session and sends metrics over UDP for a backend to analyse. xlMon collects information about the add-ins that are configured to run on start-up, general information about the Excel session and machine, as well as the full UNC path of workbooks opened and the length of time that they have been open.
+xlMon is an Excel COM Add-In for Windows that monitors an Excel session and sends metrics over UDP for a backend to analyse. xlMon collects information about the add-ins that are configured to run on start-up, general information about the Excel session and machine, as well as the full UNC path of workbooks opened and the length of time that they have been open.
 
-You could look at the times that workbooks were open, the patterns around when they are opened etc to determine how important they are.
+A large organisation could look at the times that workbooks were open, the patterns around when they are opened etc to determine how important they are.
 
 The repo consists of a single Visual Studio solution, containing two C# projects.
 1) A COM Add-In that is installed and run inside the Excel process, that needs to be deployed and registered on the user’s machine.
@@ -32,7 +32,6 @@ This message is only sent once per Excel process, when Excel first starts up.
     "UsrNm": "USERNAME_IS_HERE",
     "MchNm": "MACHINE_NAME_HERE",
     "IP": "XXX.XXX.XXX.XXX",
-    "MchUpTime": 23947,
     "XLUpTime": 1,
     "XLVer": "16.0.5387.1000",
     "XLMonVer": "1.6.0.0"
@@ -40,7 +39,7 @@ This message is only sent once per Excel process, when Excel first starts up.
 ```
 
 **SID** is a unique ID for the Excel process that is generating the messages. All other messages from the same process will have the same SID,
-**UsrName** - The Window Login, **MchNm** - The Machine Name, **IP** - The IP Address, **MchUpTime** - Number of seconds since machine last rebooted, **XLUptime** - Number of seconds the Excel process has been alive for, **XLVer** - The Product Version of Excel, **XLMonVer** - The version of XLMon that has sent the data
+**UsrName** - The Window Login, **MchNm** - The Machine Name, **IP** - The IP Address, **XLUptime** - Number of seconds the Excel process has been alive for, **XLVer** - The Product Version of Excel, **XLMonVer** - The version of XLMon that has sent the data
 
 ### StillOpen
 This message is sent periodically. Each message from the same process supersedes the last. This means that if you group by **SID** you can discard all the previous StillOpen message sent, as the content is cumulative. We send periodically rather than send once when Excel closes down, because often Excel closes or the user End Tasks it, in those circumstances we wouldn't get the information.
@@ -55,7 +54,6 @@ We include most of the fields from the intro message and a list of WorkBook Full
     "UsrNm": "USERNAME_IS_HERE",
     "MchNm": "MACHINE_NAME_HERE",
     "IP": "XXX.XXX.XXX.XXX",
-    "MchUpTime": 52235,
     "XLUpTime": 434,
     "WkBkData":
     [{
@@ -91,7 +89,6 @@ This message is sent on start-up once. It lists the XLA, COM and automation Add-
     "UsrNm": "USERNAME_IS_HERE",
     "MchNm": "MACHINE_NAME_HERE",
     "IP": "XXX.XXX.XXX.XXX",
-    "MchUpTime": 13788,
     "XLUpTime": 4,
     "RegDetails": [{
         "Type": "HKCU_CLSID",
@@ -151,7 +148,6 @@ There is an argument that we should make this more generic and also monitor for 
     "UsrNm": "USERNAME_IS_HERE",
     "MchNm": "MACHINE_NAME_HERE",
     "IP": "XXX.XXX.XXX.XXX",
-    "MchUpTime":6501,
     "XLUpTime":61,
     "Details":
     [{
@@ -182,7 +178,6 @@ Sent when Excel closes down. Every session should have a close down message, but
     "UsrNm": "USERNAME_IS_HERE",
     "MchNm": "MACHINE_NAME_HERE",
     "IP": "XXX.XXX.XXX.XXX",
-    "MchUpTime": 146,
     "XLUpTime": 20
 }
 ```
